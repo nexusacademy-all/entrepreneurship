@@ -1,0 +1,11 @@
+django>=4.2,<5.0
+djangorestframework>=3.14
+django-tailwind[reload]>=3.8
+psycopg2-binary>=2.9
+redis>=5.0
+gunicorn>=21.2
+celery>=5.3
+django-cors-headers>=4.3
+python-dotenv>=1.0
+Pillow>=10.1
+django-filter>=23.3

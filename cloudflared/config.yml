@@ -1,0 +1,6 @@
+tunnel: build-waterfall-token
+
+ingress:
+  - hostname: entrepreneurship.nexusacademy.com
+    service: http://nginx:80
+  - service: http_status:404
