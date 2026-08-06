@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'success.apps.SuccessConfig',
     'core.apps.CoreConfig',
     'pages.apps.PagesConfig',
+    'auth.apps.AuthConfig',
 ]
 
 MIDDLEWARE = [
