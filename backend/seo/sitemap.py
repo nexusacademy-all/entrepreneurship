@@ -1,10 +1,5 @@
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
-from .models import AboutSection, MethodologySection
-from framework.models import Step
-from programs.models import Program
-from events.models import Event
-from success.models import SuccessStory
 
 
 class StaticViewSitemap(Sitemap):
@@ -23,6 +18,7 @@ class AboutSitemap(Sitemap):
     changefreq = 'weekly'
 
     def items(self):
+        from about.models import AboutSection
         return AboutSection.objects.filter(is_published=True)
 
     def lastmod(self, obj):
@@ -34,6 +30,7 @@ class MethodologySitemap(Sitemap):
     changefreq = 'weekly'
 
     def items(self):
+        from methodology.models import MethodologySection
         return MethodologySection.objects.filter(is_published=True)
 
     def lastmod(self, obj):
@@ -45,6 +42,7 @@ class FrameworkSitemap(Sitemap):
     changefreq = 'weekly'
 
     def items(self):
+        from framework.models import Step
         return Step.objects.filter(is_published=True)
 
     def lastmod(self, obj):
@@ -56,6 +54,7 @@ class ProgramSitemap(Sitemap):
     changefreq = 'daily'
 
     def items(self):
+        from programs.models import Program
         return Program.objects.filter(status='upcoming')
 
     def lastmod(self, obj):
@@ -67,6 +66,7 @@ class EventSitemap(Sitemap):
     changefreq = 'daily'
 
     def items(self):
+        from events.models import Event
         return Event.objects.filter(status='upcoming')
 
     def lastmod(self, obj):
@@ -78,6 +78,7 @@ class SuccessStorySitemap(Sitemap):
     changefreq = 'weekly'
 
     def items(self):
+        from success.models import SuccessStory
         return SuccessStory.objects.filter(is_published=True)
 
     def lastmod(self, obj):
