@@ -2,7 +2,7 @@
 from django.apps import AppConfig
 
 
-class AuthConfig(AppConfig):
+class AccountConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'auth'
+    name = 'account'
     verbose_name = 'Authentication'
