@@ -1,0 +1,17 @@
+/* Home page styles */
+.hero-section {
+    background: linear-gradient(135deg, #0c4a6e 0%, #0369a1 100%);
+}
+
+.stats-section {
+    background-color: #ffffff;
+}
+
+.feature-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}

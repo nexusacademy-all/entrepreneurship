@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block title %}Nexus Academy - Entrepreneurship Platform{% endblock %}
+{% block meta_description %}Welcome to Nexus Academy Entrepreneurship Platform. Your journey to entrepreneurial success starts here.{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="relative bg-gradient-to-br from-nexus-900 to-nexus-700 text-white py-20 lg:py-32">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                Build Your <span class="text-nexus-300">Entrepreneurial</span> Future
+            </h1>
+            <p class="text-xl md:text-2xl text-nexus-100 mb-8 max-w-3xl mx-auto">
+                Master the 14-step entrepreneurship framework and transform your ideas into successful businesses.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/framework/" class="bg-white text-nexus-700 px-8 py-3 rounded-lg font-semibold hover:bg-nexus-50 transition">
+                    Start Learning
+                </a>
+                <a href="/programs/" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-nexus-700 transition">
+                    Explore Programs
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+            <div>
+                <div class="text-4xl font-bold text-nexus-600">14</div>
+                <div class="text-gray-600 mt-2">Framework Steps</div>
+            </div>
+            <div>
+                <div class="text-4xl font-bold text-nexus-600">500+</div>
+                <div class="text-gray-600 mt-2">Entrepreneurs</div>
+            </div>
+            <div>
+                <div class="text-4xl font-bold text-nexus-600">50+</div>
+                <div class="text-gray-600 mt-2">Programs</div>
+            </div>
+            <div>
+                <div class="text-4xl font-bold text-nexus-600">95%</div>
+                <div class="text-gray-600 mt-2">Success Rate</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-12">Why Choose Nexus Academy?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 rounded-lg shadow">
+                <div class="text-nexus-600 text-3xl mb-4">🎯</div>
+                <h3 class="text-xl font-semibold mb-2">Structured Framework</h3>
+                <p class="text-gray-600">Our proven 14-step methodology guides you from idea to successful launch.</p>
+            </div>
+            <div class="bg-white p-8 rounded-lg shadow">
+                <div class="text-nexus-600 text-3xl mb-4">👨‍🏫</div>
+                <h3 class="text-xl font-semibold mb-2">Expert Mentorship</h3>
+                <p class="text-gray-600">Learn from successful entrepreneurs and industry experts.</p>
+            </div>
+            <div class="bg-white p-8 rounded-lg shadow">
+                <div class="text-nexus-600 text-3xl mb-4">🌐</div>
+                <h3 class="text-xl font-semibold mb-2">Global Community</h3>
+                <p class="text-gray-600">Connect with like-minded entrepreneurs from around the world.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-16 bg-nexus-700 text-white">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-4">Ready to Start Your Journey?</h2>
+        <p class="text-xl mb-8">Join hundreds of entrepreneurs who have transformed their ideas into reality.</p>
+        <a href="/programs/" class="bg-white text-nexus-700 px-8 py-3 rounded-lg font-semibold hover:bg-nexus-50 transition inline-block">
+            View Our Programs
+        </a>
+    </div>
+</section>
+{% endblock %}

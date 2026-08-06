@@ -1,7 +1,18 @@
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from django.views.generic import TemplateView
 from .models import Step, Tool, Resource, Exercise
 from .serializers import StepSerializer, ToolSerializer, ResourceSerializer, ExerciseSerializer
+
+
+class FrameworkOverviewView(TemplateView):
+    template_name = 'framework/overview.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['steps'] = Step.objects.filter(is_published=True)
+        context['total_steps'] = 14
+        return context
 
 
 class StepViewSet(viewsets.ModelViewSet):

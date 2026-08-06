@@ -6,7 +6,13 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    path('health/', include('core.urls')),
+    path('', include('pages.urls')),
+    path('methodology/', include('pages.urls')),
+    path('framework/', include('pages.urls')),
+    path('programs/', include('programs.urls')),
+    path('events/', include('events.urls')),
+    path('success/', include('success.urls')),
     path('api/users/', include('users.urls')),
     path('api/content/', include('content.urls')),
     path('api/framework/', include('framework.urls')),

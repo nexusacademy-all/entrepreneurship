@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+
+{% block title %}Events & Webinars | Nexus Academy{% endblock %}
+
+{% block meta_description %}
+Discover upcoming events, webinars, workshops, and networking opportunities with Nexus Academy.
+Connect with entrepreneurs and industry experts.
+{% endblock %}
+
+{% block content %}
+<section class="bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="text-center">
+            <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl">
+                Events & Webinars
+            </h1>
+            <p class="mt-4 text-xl text-gray-500 max-w-3xl mx-auto">
+                Join our community events, expert-led webinars, and networking sessions designed to
+                help you learn, connect, and grow.
+            </p>
+        </div>
+
+        <div class="mt-16">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Upcoming Events</h2>
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {% if upcoming_events %}
+                    {% for event in upcoming_events %}
+                    <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                        <div class="p-6">
+                            <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-nexus-100 text-nexus-800 mb-4">
+                                {{ event.get_type_display }}
+                            </span>
+                            <h3 class="text-xl font-semibold text-gray-900">{{ event.title }}</h3>
+                            <p class="mt-2 text-gray-500 line-clamp-3">{{ event.description|truncatechars:150 }}</p>
+                            <div class="mt-4 space-y-2">
+                                <div class="flex items-center text-sm text-gray-500">
+                                    <svg class="h-4 w-4 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                                    </svg>
+                                    {{ event.date|date:"M d, Y" }}
+                                </div>
+                                <div class="flex items-center text-sm text-gray-500">
+                                    <svg class="h-4 w-4 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    {{ event.time|time:"g:i A" }}
+                                </div>
+                                <div class="flex items-center text-sm text-gray-500">
+                                    <svg class="h-4 w-4 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                                    </svg>
+                                    {{ event.location }}
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <a href="#" class="inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-nexus-600 hover:bg-nexus-700">
+                                    Register Now
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                <div class="col-span-full text-center py-12">
+                    <p class="text-gray-500 text-lg">No upcoming events scheduled yet.</p>
+                    <p class="text-gray-400 mt-2">Check back soon for new events.</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        {% if past_events %}
+        <div class="mt-16">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Past Events</h2>
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {% for event in past_events %}
+                <div class="bg-gray-50 border border-gray-200 rounded-xl overflow-hidden">
+                    <div class="p-6">
+                        <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-gray-100 text-gray-600 mb-4">
+                            {{ event.get_type_display }}
+                        </span>
+                        <h3 class="text-xl font-semibold text-gray-900">{{ event.title }}</h3>
+                        <p class="mt-2 text-gray-500 line-clamp-3">{{ event.description|truncatechars:150 }}</p>
+                        <div class="mt-4 flex items-center text-sm text-gray-500">
+                            <svg class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                            </svg>
+                            {{ event.date|date:"M d, Y" }}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="mt-16 bg-nexus-50 rounded-2xl p-8 md:p-12 text-center">
+            <h2 class="text-3xl font-extrabold text-gray-900">Never miss an event</h2>
+            <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+                Subscribe to our newsletter to get notified about upcoming events and webinars.
+            </p>
+            <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/programs/" class="inline-flex justify-center items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-nexus-600 hover:bg-nexus-700">
+                    Explore Programs
+                </a>
+                <a href="/" class="inline-flex justify-center items-center px-8 py-3 border border-nexus-300 text-base font-medium rounded-md text-nexus-700 bg-white hover:bg-nexus-50">
+                    Back to Home
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

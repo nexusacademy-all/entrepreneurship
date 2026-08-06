@@ -1,0 +1,25 @@
+/* Main styles for Entrepreneurship Platform */
+:root {
+    --nexus-50: #f0f9ff;
+    --nexus-100: #e0f2fe;
+    --nexus-200: #bae6fd;
+    --nexus-300: #7dd3fc;
+    --nexus-400: #38bdf8;
+    --nexus-500: #0ea5e9;
+    --nexus-600: #0284c7;
+    --nexus-700: #0369a1;
+    --nexus-800: #075985;
+    --nexus-900: #0c4a6e;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+}
+
+.hero-gradient {
+    background: linear-gradient(135deg, var(--nexus-900) 0%, var(--nexus-700) 100%);
+}

@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block title %}14-Step Entrepreneurship Framework | Nexus Academy{% endblock %}
+
+{% block meta_description %}
+Follow our proven 14-step entrepreneurship framework to transform your idea into a successful venture.
+Structured guidance from ideation to growth.
+{% endblock %}
+
+{% block content %}
+<section class="bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="text-center">
+            <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl">
+                14-Step Entrepreneurship Framework
+            </h1>
+            <p class="mt-4 text-xl text-gray-500 max-w-3xl mx-auto">
+                A proven, structured methodology that guides you from entrepreneurial passion to a validated,
+                funded venture. Each step builds on the last, ensuring comprehensive preparation for success.
+            </p>
+        </div>
+
+        <div class="mt-16">
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                {% for step in steps %}
+                <div class="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-full bg-nexus-100 text-nexus-700 font-bold text-lg mb-4">
+                        {{ step.step_number }}
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900">{{ step.title }}</h3>
+                    <p class="mt-2 text-sm text-gray-500 line-clamp-3">{{ step.description|truncatechars:120 }}</p>
+                    <a href="{% url 'admin:framework_step_change' step.pk %}" class="mt-4 inline-flex items-center text-nexus-600 hover:text-nexus-700 text-sm font-medium">
+                        Learn more
+                        <svg class="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                        </svg>
+                    </a>
+                </div>
+                {% empty %}
+                <div class="col-span-full text-center py-12">
+                    <p class="text-gray-500 text-lg">No published steps available yet.</p>
+                    <p class="text-gray-400 mt-2">Check back soon for the full 14-step framework.</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="mt-16 bg-nexus-50 rounded-2xl p-8 md:p-12">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900">How It Works</h2>
+                <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+                    The framework is organized into three phases, each building upon the previous to create
+                    a complete entrepreneurial journey.
+                </p>
+            </div>
+            <div class="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3">
+                <div class="text-center">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-nexus-600 text-white text-xl font-bold mx-auto mb-4">
+                        1-4
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900">Discovery & Validation</h3>
+                    <p class="mt-2 text-gray-600">
+                        Identify problems, validate ideas, and define your unique value proposition.
+                    </p>
+                </div>
+                <div class="text-center">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-nexus-600 text-white text-xl font-bold mx-auto mb-4">
+                        5-8
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900">Building & Launching</h3>
+                    <p class="mt-2 text-gray-600">
+                        Develop your MVP, build your team, and prepare for market entry.
+                    </p>
+                </div>
+                <div class="text-center">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-nexus-600 text-white text-xl font-bold mx-auto mb-4">
+                        9-14
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900">Growth & Scaling</h3>
+                    <p class="mt-2 text-gray-600">
+                        Scale operations, secure funding, and build sustainable growth.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-16 text-center">
+            <h2 class="text-3xl font-extrabold text-gray-900">Ready to start your journey?</h2>
+            <p class="mt-4 text-lg text-gray-600">
+                Join thousands of entrepreneurs who have transformed their ideas into successful businesses.
+            </p>
+            <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/programs/" class="inline-flex justify-center items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-nexus-600 hover:bg-nexus-700">
+                    Explore Programs
+                </a>
+                <a href="/" class="inline-flex justify-center items-center px-8 py-3 border border-nexus-300 text-base font-medium rounded-md text-nexus-700 bg-white hover:bg-nexus-50">
+                    Back to Home
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
