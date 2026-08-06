@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Our Methodology - Nexus Academy{% endblock %}
+{% block meta_description %}Learn about our entrepreneurship methodology and framework for success.{% endblock %}
+
+{% block content %}
+<section class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-900">Our Methodology</h1>
+            <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
+                At Nexus Academy, we believe entrepreneurship is a skill that can be learned and mastered.
+                Our methodology is built on years of research and real-world experience.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for section in sections %}
+            <div class="bg-white border rounded-lg p-6 hover:shadow-lg transition">
+                <h3 class="text-xl font-semibold mb-2">{{ section.title }}</h3>
+                <p class="text-gray-600">{{ section.content|truncatewords:30 }}</p>
+                <span class="inline-block mt-4 text-sm text-nexus-600 font-medium">{{ section.get_section_type_display }}</span>
+            </div>
+            {% empty %}
+            <div class="col-span-full text-center text-gray-500">
+                <p>No methodology sections available yet.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
