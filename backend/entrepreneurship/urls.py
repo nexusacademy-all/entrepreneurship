@@ -9,6 +9,7 @@ urlpatterns = [
     path('health/', include('core.urls')),
     path('auth/', include('account.urls')),
     path('methodology/', include('methodology.urls')),
+    path('about/', include('about.urls')),
     path('', include('pages.urls')),
     path('methodology/', include('pages.urls')),
     path('framework/', include('pages.urls')),

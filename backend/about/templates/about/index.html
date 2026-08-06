@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}About Us - Nexus Academy{% endblock %}
+{% block meta_description %}Learn about Nexus Academy, our mission, vision, and the team behind the entrepreneurship platform.{% endblock %}
+
+{% block content %}
+<section class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-900">About Nexus Academy</h1>
+            <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
+                We are dedicated to empowering the next generation of entrepreneurs with the knowledge, tools, and community they need to succeed.
+            </p>
+        </div>
+
+        {% if sections %}
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for section in sections %}
+            <div class="bg-white border rounded-lg p-6 hover:shadow-lg transition">
+                <h3 class="text-xl font-semibold mb-2">{{ section.title }}</h3>
+                <p class="text-gray-600">{{ section.content|truncatewords:30 }}</p>
+                <span class="inline-block mt-4 text-sm text-nexus-600 font-medium">{{ section.get_section_type_display }}</span>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="text-center text-gray-500 py-12">
+            <p>No about sections available yet.</p>
+        </div>
+        {% endif %}
+
+        {% if founder %}
+        <div class="mt-16 bg-nexus-50 rounded-2xl p-8 md:p-12">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900">Our Founder</h2>
+                <div class="mt-8 flex flex-col items-center">
+                    {% if founder.photo %}
+                    <img src="{{ founder.photo.url }}" alt="{{ founder.name }}" class="w-32 h-32 rounded-full object-cover mb-4">
+                    {% endif %}
+                    <h3 class="text-2xl font-semibold">{{ founder.name }}</h3>
+                    <p class="mt-2 text-gray-600 max-w-2xl">{{ founder.bio }}</p>
+                    {% if founder.linkedin_url %}
+                    <a href="{{ founder.linkedin_url }}" target="_blank" class="mt-4 text-nexus-600 hover:text-nexus-800">LinkedIn Profile</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if team_members %}
+        <div class="mt-16">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-extrabold text-gray-900">Our Team</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {% for member in team_members %}
+                <div class="bg-white border rounded-lg p-6 text-center hover:shadow-lg transition">
+                    {% if member.photo %}
+                    <img src="{{ member.photo.url }}" alt="{{ member.name }}" class="w-24 h-24 rounded-full object-cover mx-auto mb-4">
+                    {% endif %}
+                    <h3 class="text-lg font-semibold">{{ member.name }}</h3>
+                    <p class="text-nexus-600">{{ member.role }}</p>
+                    <p class="mt-2 text-gray-600 text-sm">{{ member.bio|truncatewords:15 }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
